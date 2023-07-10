@@ -4,8 +4,8 @@ import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
+import SearchPage from '../SearchPage/SearchPage';
 import NavBar from '../../components/NavBar/NavBar';
-import SearchPage from '../SearchPage/SearchPage'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
