@@ -7,6 +7,8 @@ import HomePage from '../HomePage/HomePage';
 import SearchPage from '../SearchPage/SearchPage';
 import NavBar from '../../components/NavBar/NavBar';
 
+
+
 export default function App() {
   const [user, setUser] = useState(getUser());
 

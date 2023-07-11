@@ -1,10 +1,25 @@
 const fetch = require('node-fetch');
+const Exercise = require('../../models/exercise');
 
 module.exports = {
   search,
+  addExercise
 };
 
+// async function getAllForUser(req, res) {
+//   const exercises = await Order.find({user: req.user._id, isPaid: true}).sort('-updatedAt');
+//   res.json(orders);
+// }
 
+async function addExercise(req, res) {
+  try {
+    const newExercise = await Exercise.create(req.body)
+    res.status(200).json(newExercise);
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+}
 
 async function search(req, res) {
   try {
