@@ -5,13 +5,17 @@ import './ExerciseList.css';
 import ExerciseListItem from '../ExerciseListItem/ExerciseListItem';
 import * as exercisesAPI from '../../utilities/exercises-api';
 
-export default function ExerciseList( {searchedExercises} ) {
+export default function ExerciseList( {searchedExercises, setWorkoutDetail} ) {
   const [exercises, setExercises] = useState([]);
+  
 
   async function handleAddExercise(exerciseId) {
     const newExercise = await exercisesAPI.addExercise(exerciseId);
+    console.log(newExercise)
     setExercises(...exercises, newExercise);
+    // setWorkoutDetail(newExercise);
   }
+
 
   const searchedExerciseList = searchedExercises.map(e => 
       <ExerciseListItem 

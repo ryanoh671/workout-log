@@ -1,5 +1,6 @@
 import 'materialize-css/dist/css/materialize.min.css'
 import './ExerciseListItem.css';
+// import { Link } from 'react-router-dom';
 
 
 export default function ExerciseListItem({e, handleAddExercise}) {
@@ -13,7 +14,9 @@ export default function ExerciseListItem({e, handleAddExercise}) {
       <p>{e.target}</p>
       <p>{e.equipment}</p>
       <p><img src={e.gifUrl}></img></p>
-        <button onClick={() => handleAddExercise(e.id)}>ADD</button>
+      {/* add functionality in handleAddExercise 
+      to add to the workout detail card */}
+      <button onClick={() => handleAddExercise(e.id)}>ADD TO WORKOUT</button>
     </div>
   )
 };

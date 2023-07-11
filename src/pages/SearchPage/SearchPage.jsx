@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react';
 import * as exercisesAPI from '../../utilities/exercises-api';
 // import BodyParts from '../../components/BodyParts/BodyParts';
 import ExerciseList from '../../components/ExerciseList/ExerciseList';
+import WorkoutDetail from '../../components/WorkoutDetail/WorkoutDetail';
+import './SearchPage.css';
 
 export default function SearchPage() {
   const [search, setSearch] = useState('');
   const [searchedExercises, setSearchedExercises] = useState([]);
+  const [workoutDetail, setWorkoutDetail] = useState([]);
 
   
   // const [bodyParts, setBodyParts] = useState([]);
@@ -41,15 +44,17 @@ export default function SearchPage() {
   } 
   
   return (
-    <>
-      <h1>Search Page</h1>
-      <form onSubmit={handleSearch}>
-        <label>Search For Exercises Here</label>
-        <input type="text" name='search' value={search} placeholder="search for exercises" onChange={handleChange}/>
-        <button type="submit">SEARCH</button>
-      </form>
-      {/* <BodyParts bodyParts={bodyParts}/> */}
-      <ExerciseList searchedExercises={searchedExercises} />
-    </>
+    <main className="SearchPage">
+      <WorkoutDetail workoutDetail={workoutDetail}/>
+      <aside>
+        <h1>Search Page</h1>
+        <form onSubmit={handleSearch}>
+          <label>Search For Exercises Here</label>
+          <input type="text" name='search' value={search} placeholder="search for exercises" onChange={handleChange}/>
+          <button type="submit">SEARCH</button>
+        </form>
+        <ExerciseList searchedExercises={searchedExercises} setWorkoutDetail={setWorkoutDetail}/>
+      </aside>
+      </main>
   )
 }

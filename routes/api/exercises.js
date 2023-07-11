@@ -10,4 +10,5 @@ router.get('/search', exercisesCtrl.search);
 
 router.post('/:id', exercisesCtrl.addExercise);
 
+
 module.exports = router;

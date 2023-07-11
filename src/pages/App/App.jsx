@@ -6,6 +6,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
 import SearchPage from '../SearchPage/SearchPage';
 import NavBar from '../../components/NavBar/NavBar';
+import WorkoutDetail from '../../components/WorkoutDetail/WorkoutDetail';
 
 
 
