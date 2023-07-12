@@ -8,28 +8,7 @@ import './SearchPage.css';
 export default function SearchPage() {
   const [search, setSearch] = useState('');
   const [searchedExercises, setSearchedExercises] = useState([]);
-  const [workoutDetail, setWorkoutDetail] = useState([]);
-
-  
-  // const [bodyParts, setBodyParts] = useState([]);
-
-  // useEffect(function() {
-  //   async function exerciseData() {
-  //       const url = `${process.env.API_URL}/bodyPartList`;
-  //       const options = {
-  //         method: 'GET',
-  //         headers: {
-  //           'X-RapidAPI-Key': process.env.API_KEY,
-  //           'X-RapidAPI-Host': process.env.API_HOST
-  //         }
-  //       };
-  //       const bodyPartsData = await fetch(url);
-  //       const results = await bodyPartsData.json();
-  //       console.log(results, "bodyparts data");
-  //       // setBodyParts([...results]);
-  //   }
-  //   exerciseData();
-  // }, []);
+  const [workoutLog, setWorkoutLog] = useState([]);
 
   function handleChange(evt) {
     const searchData = evt.target.value;
@@ -45,15 +24,15 @@ export default function SearchPage() {
   
   return (
     <main className="SearchPage">
-      <WorkoutDetail workoutDetail={workoutDetail}/>
+      <WorkoutDetail workoutLog={workoutLog}/>
       <aside>
         <h1>Search Page</h1>
         <form onSubmit={handleSearch}>
           <label>Search For Exercises Here</label>
-          <input type="text" name='search' value={search} placeholder="search for exercises" onChange={handleChange}/>
+          <input type="text" name='search' value={search} placeholder="Type in exercise" onChange={handleChange}/>
           <button type="submit">SEARCH</button>
         </form>
-        <ExerciseList searchedExercises={searchedExercises} setWorkoutDetail={setWorkoutDetail}/>
+        <ExerciseList searchedExercises={searchedExercises} setWorkoutLog={setWorkoutLog} workoutLog={workoutLog}/>
       </aside>
       </main>
   )

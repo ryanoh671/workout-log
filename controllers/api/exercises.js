@@ -13,8 +13,16 @@ module.exports = {
 
 async function addExercise(req, res) {
   try {
-    const newExercise = await Exercise.create(req.body)
-    res.status(200).json(newExercise);
+    let exerciseInDb = await Exercise.findOne({apiId: req.body.id});
+    if (!exerciseInDb) {
+      const newExer = {
+        ...req.body, 
+        apiId: req.body.id
+      }
+      exerciseInDb = await Exercise.create(newExer)
+    }
+    console.log(req.body, 'exerices line 18')
+    res.status(200).json(exerciseInDb);
   } catch (err) {
     console.log(err)
     res.status(500).json(err);
@@ -33,6 +41,7 @@ async function search(req, res) {
     };
     const data = await fetch(url, options);
     const results = await data.json();
+    console.log(results, 'results of fetch url, options')
     res.status(200).json(results);
   } catch (err) {
     res.status(400).json(err);

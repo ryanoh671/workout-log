@@ -1,32 +1,26 @@
-// import M from 'materialize-css';
 import { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import 'materialize-css/dist/css/materialize.min.css'
 import './ExerciseList.css';
-import ExerciseListItem from '../ExerciseListItem/ExerciseListItem';
 import * as exercisesAPI from '../../utilities/exercises-api';
 
-export default function ExerciseList( {searchedExercises, setWorkoutDetail} ) {
-  const [exercises, setExercises] = useState([]);
-  
+export default function ExerciseList( {searchedExercises, setWorkoutLog, workoutLog} ) {
 
-  async function handleAddExercise(exerciseId) {
-    const newExercise = await exercisesAPI.addExercise(exerciseId);
-    console.log(newExercise)
-    setExercises(...exercises, newExercise);
-    // setWorkoutDetail(newExercise);
+  async function handleAddExercise(exercise) {
+    const newExercise = await exercisesAPI.addExercise(exercise);
+    setWorkoutLog([...workoutLog, newExercise]);
   }
 
-
-  const searchedExerciseList = searchedExercises.map(e => 
-      <ExerciseListItem 
-        key={e.id}
-        e={e}
-        handleAddExercise={handleAddExercise}
-      />
-    );
   return (
-    <main>
-      {searchedExerciseList}
-    </main>
+    <div>
+      {searchedExercises.map(e => (
+        <div key={e.id}>
+          <h3>{e.name}</h3>
+          <p>{e.target}</p>
+          <p>{e.equipment}</p>
+          <img src={e.gifUrl} />
+          <button onClick={() => {handleAddExercise(e)}}>ADD EXERCISE</button>
+        </div>
+      ))}
+    </div>
   )
 }

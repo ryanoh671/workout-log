@@ -8,7 +8,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 // POST /api/exercises 
 router.get('/search', exercisesCtrl.search);
 
-router.post('/:id', exercisesCtrl.addExercise);
+router.post('/', exercisesCtrl.addExercise);
 
 
 module.exports = router;

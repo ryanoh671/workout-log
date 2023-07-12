@@ -9,9 +9,6 @@ const exerciseSchema = new Schema({
   equipment: String, 
   gifUrl: String,
   apiId: String,
-  sets: Number,
-  reps: Number,
-  weight: Number 
 }, {
   timestamps: true
 });

@@ -6,7 +6,6 @@ import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
 import SearchPage from '../SearchPage/SearchPage';
 import NavBar from '../../components/NavBar/NavBar';
-import WorkoutDetail from '../../components/WorkoutDetail/WorkoutDetail';
 
 
 
@@ -22,6 +21,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
               <Route path="/search" element={<SearchPage />} />
+              {/* <Route path="/workout/:exerciseId" element={<WorkoutItemDetails />} /> */}
             </Routes>
           </>
           :
