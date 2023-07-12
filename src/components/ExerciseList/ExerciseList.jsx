@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import 'materialize-css/dist/css/materialize.min.css'
+// import 'materialize-css/dist/css/materialize.min.css'
 import './ExerciseList.css';
 import * as exercisesAPI from '../../utilities/exercises-api';
 
