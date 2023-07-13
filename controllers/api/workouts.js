@@ -12,20 +12,18 @@ module.exports = {
 //   res.json(workouts);
 // }
 
-async function createWorkout(req, res) {
+async function createWorkout(req, res, next) {
   try {
-    console.log(req.body,'req.body'); // Log the request body
-    // Rest of the code...
-  } catch (error) {
-    next(error);
+    const newWorkout = {
+      ...req.body,
+      workoutId: req.body.apiId
+    } 
+    console.log(newWorkout, 'newWorkout in cont')
+    console.log(req.body, 'this is the reqBODY')
+    workoutInDb = await Workout.create(newWorkout)
+    res.status(200).json(newWorkout);
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
   }
-  // try {
-  //   req.body.user = req.user._id
-  //   const newWorkout = await Workout.create(req.body);
-  //   console.log(newWorkout, 'workout in CTRL')
-  //   res.status(200).json(newWorkout);
-  // } catch (err) {
-  //   console.log(err)
-  //   res.status(500).json(err);
-  // }
 }

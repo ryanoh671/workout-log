@@ -31,9 +31,15 @@ export default function WorkoutItem({item, workoutLog}){
 
     async function handleAddWorkout(evt) {
       evt.preventDefault();
-      const newWorkout = await workoutsAPI.addWorkout(formData);
+      console.log(formData, 'formData 222')
+      const workoutData = {
+        exercise: item,
+        weight: formData.weight,
+        reps: formData.reps
+      }
+      const newWorkout = await workoutsAPI.addWorkout(workoutData);
       console.log(newWorkout, 'this is the new workout');
-      setWorkout([...workout, newWorkout])
+      setWorkout([...workout, newWorkout]);
     }
 
   return (
