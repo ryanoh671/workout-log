@@ -18,7 +18,7 @@ export default function SearchPage() {
   async function handleSearch(evt) {
     evt.preventDefault();
     const results = await exercisesAPI.search(search);
-    console.log(results);
+    // console.log(results);
     setSearchedExercises(results);
   } 
   

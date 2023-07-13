@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './WorkoutItem.css';
 // import NumericInput from 'react-numeric-input';
-import * as workoutsAPI from '../../utilities/workouts-api'
+import * as workoutsAPI from '../../utilities/workouts-api';
 
 export default function WorkoutItem({item, workoutLog}){
   const [formData, setFormData] = useState([])
@@ -29,20 +29,18 @@ export default function WorkoutItem({item, workoutLog}){
       console.log(formData, 'this is the formData')
     }
 
-    // async function handleAddWorkout(evt) {
-    //   // const exerciseInLog = workoutLog.some(ex => ex.apiId === exercise.id)
-    //   // if (exerciseInLog) return;
-    //   evt.preventDefault();
-    //   const newWorkout = await workoutsAPI.addWorkout(evt);
-    //   console.log(newWorkout, 'this is the new workout');
-    //   // setWorkoutLog([...workoutLog, newExercise]);
-    // }
+    async function handleAddWorkout(evt) {
+      evt.preventDefault();
+      const newWorkout = await workoutsAPI.addWorkout(formData);
+      console.log(newWorkout, 'this is the new workout');
+      setWorkout([...workout, newWorkout])
+    }
 
   return (
-    <>
+    <>-
       <div>
         <h5>{item.name}</h5>
-        <form >
+        <form onSubmit={handleAddWorkout}>
           <label>Total sets</label>
         <input value={sets} min={1} max={5} type="number" onChange={(evt) => setSets(Number(evt.target.value))}/>
         {formData.map((inputObj, idx) => (
@@ -53,6 +51,7 @@ export default function WorkoutItem({item, workoutLog}){
             <input type="text" name="reps" min={1} value={`${formData[idx]["reps"]}`} placeholder="Reps" onChange={(evt) => handleChange(evt, idx)}/>
           </div>
         ))}
+        <button type="submit">Finish Workout</button>
       </form>
       </div>
     </>

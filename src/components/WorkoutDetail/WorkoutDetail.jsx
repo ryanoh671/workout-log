@@ -13,7 +13,7 @@ export default function WorkoutDetail({workoutLog}) {
   <div className="workoutDetail">
       <h1>Workout Items</h1>
         <ul>{workoutItem}</ul>
-      <button>Finish Workout</button>
+      
   </div>
   )
 };
