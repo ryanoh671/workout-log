@@ -30,7 +30,6 @@ export default function WorkoutItem({item, workoutLog, allWorkoutDetails, setAll
     }, [clearFormData]);
 
     function handleChange(evt, index) {
-      console.log(evt, 'evt in handlChange')
       let updatedFormData = formData.map((inputObj, idx) => {
         if (idx === index) return {...inputObj, [evt.target.name]: Number(evt.target.value)};
         else return {...inputObj}
@@ -40,7 +39,7 @@ export default function WorkoutItem({item, workoutLog, allWorkoutDetails, setAll
         exercise: item._id, 
         setsDetails: updatedFormData
       }
-      const filteredAllWorkoutDetails = allWorkoutDetails.filter(w => w.itemId !== item._id)
+      const filteredAllWorkoutDetails = allWorkoutDetails.filter(w => w.exercise !== item._id)
       setAllWorkoutDetails([...filteredAllWorkoutDetails, newWorkoutDetails])
     }
   

@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import './WorkoutDetail.css';
 import WorkoutItem from '../WorkoutItem/WorkoutItem';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as workoutsAPI from '../../utilities/workouts-api';
 
+
 export default function WorkoutDetail({workoutLog}) {
+  const navigate = useNavigate();
   const [clearFormData, setClearFormData] = useState(false);
   const [allWorkoutDetails, setAllWorkoutDetails] = useState([]);
   const [formData, setFormData] = useState({
     date: new Date(), 
     notes: ''
   });
+  const [workoutPageData, setWorkoutPageData] = useState([]);
+
+  const workoutDetail = allWorkoutDetails.map(w => w.exercise)
 
   const workoutItem = workoutLog.map(item => 
     <WorkoutItem
@@ -25,17 +30,18 @@ export default function WorkoutDetail({workoutLog}) {
 
   async function handleAddToWorkout(evt) {
     evt.preventDefault();
-    // const allUserWorkouts = await workoutsAPI.createWorkout({
-    //   exerciseDetails: allWorkoutDetails,
-    //   workoutDetails: formData
-    // });
-    // console.log(allUserWorkouts)
-    // setFormData({
-    //   date: new Date(), 
-    //   notes: ''
-    // });
+    console.log(allWorkoutDetails)
+    const allUserWorkouts = await workoutsAPI.createWorkout({
+      exerciseDetails: allWorkoutDetails,
+      workoutDetails: formData
+    });
+    setFormData({
+      date: new Date(), 
+      notes: ''
+    });
     setAllWorkoutDetails([]);
     setClearFormData(true);
+    navigate("/workouts")
   }
 
   function handleChange(evt) {
@@ -59,4 +65,3 @@ export default function WorkoutDetail({workoutLog}) {
   )
 };
 
-// state that holds finalized worout log stat and passed to the workout item page. 

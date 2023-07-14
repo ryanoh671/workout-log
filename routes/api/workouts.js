@@ -7,6 +7,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // POST /api/workouts
 router.post('/', workoutsCtrl.createWorkout);
+router.get('/user', workoutsCtrl.getUserWorkouts);
 
 
 module.exports = router;
