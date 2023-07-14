@@ -14,14 +14,15 @@ module.exports = {
 
 async function createWorkout(req, res, next) {
   try {
-    const newWorkout = {
-      ...req.body,
-      workoutId: req.body.apiId
-    } 
-    console.log(newWorkout, 'newWorkout in cont')
-    console.log(req.body, 'this is the reqBODY')
-    workoutInDb = await Workout.create(newWorkout)
-    res.status(200).json(newWorkout);
+    req.body.workoutDetails.user = req.user._id;
+    const newWorkout = await Workout.create(req.body.workoutDetails)
+    req.body.exerciseDetails.forEach(function(exercise) {
+      newWorkout.exercises.push(exercise)
+    })
+    await newWorkout.save()
+    const allUserWorkouts = await Workout.find({user: req.user._id}).populate("exercises.exercise")
+    console.log(allUserWorkouts, 'allUserWorkotus')
+    res.status(200).json(allUserWorkouts);
   } catch (err) {
     console.log(err)
     res.status(500).json(err);

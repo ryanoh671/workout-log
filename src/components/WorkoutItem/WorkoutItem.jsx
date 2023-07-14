@@ -3,10 +3,9 @@ import './WorkoutItem.css';
 // import NumericInput from 'react-numeric-input';
 import * as workoutsAPI from '../../utilities/workouts-api';
 
-export default function WorkoutItem({item, workoutLog}){
+export default function WorkoutItem({item, workoutLog, allWorkoutDetails, setAllWorkoutDetails, clearFormData, setClearFormData}){
   const [formData, setFormData] = useState([])
   const [sets, setSets] = useState(1);
-  const [workout, setWorkout] = useState([])
 
   useEffect(() => {
     function updateFormData() {
@@ -18,50 +17,62 @@ export default function WorkoutItem({item, workoutLog}){
     updateFormData();
     }, [sets]);
 
+  useEffect(() => {
+    function clearFormDataEffect() {
+      if (clearFormData) {
+        console.log('useEffect for clearFormData', clearFormData)
+        setFormData([]);
+        setSets(1);
+      }
+      setClearFormData(false);
+    }
+    clearFormDataEffect();
+    }, [clearFormData]);
+
     function handleChange(evt, index) {
+      console.log(evt, 'evt in handlChange')
       let updatedFormData = formData.map((inputObj, idx) => {
-        console.log(idx, 'idx');
-        console.log(index, 'index');
-        if (idx === index) return {...inputObj, [evt.target.name]: evt.target.value};
+        if (idx === index) return {...inputObj, [evt.target.name]: Number(evt.target.value)};
         else return {...inputObj}
       })
       setFormData(updatedFormData);
-      console.log(formData, 'this is the formData')
-    }
-
-    async function handleAddWorkout(evt) {
-      evt.preventDefault();
-      console.log(formData, 'formData 222')
-      const workoutData = {
-        exercise: item,
-        weight: formData.weight,
-        reps: formData.reps
+      const newWorkoutDetails = {
+        exercise: item._id, 
+        setsDetails: updatedFormData
       }
-      const newWorkout = await workoutsAPI.addWorkout(workoutData);
-      console.log(newWorkout, 'this is the new workout');
-      setWorkout([...workout, newWorkout]);
+      const filteredAllWorkoutDetails = allWorkoutDetails.filter(w => w.itemId !== item._id)
+      setAllWorkoutDetails([...filteredAllWorkoutDetails, newWorkoutDetails])
     }
+  
+  function resetFormData() {
+    setFormData([]);
+    setSets(1);
+  }
+   
 
   return (
-    <>-
+    <>
       <div>
         <h5>{item.name}</h5>
-        <form onSubmit={handleAddWorkout}>
+        <form id='add-workout'>
           <label>Total sets</label>
         <input value={sets} min={1} max={5} type="number" onChange={(evt) => setSets(Number(evt.target.value))}/>
         {formData.map((inputObj, idx) => (
           <div key={idx}>
+            <label>ID:{item._id} </label>
             <label>Set {idx+1} lbs</label>
             <input type="text" name="weight" min={1} value={`${formData[idx]["weight"]}`}  placeholder="Weight" onChange={(evt) => handleChange(evt, idx)}/>
             <label>Set {idx+1} reps</label>
             <input type="text" name="reps" min={1} value={`${formData[idx]["reps"]}`} placeholder="Reps" onChange={(evt) => handleChange(evt, idx)}/>
           </div>
         ))}
-        <button type="submit">Finish Workout</button>
+        
       </form>
+        
       </div>
     </>
   )
 }; 
-// style={{ input: {width: 100} }}
-// `${formData[idx]["weight"]}`
+
+// update the use state in the above component that (overall form data) set form data fort that one will go down to each component and update everything .
+// put in exercise upfront. 
