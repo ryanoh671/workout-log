@@ -1,7 +1,7 @@
 .SearchPage {
   height: 100%;
   display: grid;
-  grid-template-columns: .5fr 2fr;
+  grid-template-columns: 1fr 2fr;
   background-color: var(--white);
   border-radius: 2vmin;
 }
@@ -12,4 +12,8 @@
   justify-content: space-between;
   align-items: center;
   margin: 3vmin 2vmin;
+}
+
+.search-form {
+  width: 50vmin;
 }

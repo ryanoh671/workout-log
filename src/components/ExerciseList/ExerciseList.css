@@ -1,11 +1,23 @@
 .card {
+  text-overflow: ellipsis; 
+  overflow: hidden; 
+  white-space: nowrap;
   display: flex;
   flex-direction: column;
-  height: 50vmin;
-  width: 50vmin;
+  /* height: 20vmin; */
+  width: 55vmin;
   float: left;
-  margin: 100px;
+  padding: 10px;
 }
 
+img {
+  width: 50vmin;
+  height: 50vmin;
+}
 
+/* 
 
+ #add-exercise {
+  width: 200px;
+
+ } */

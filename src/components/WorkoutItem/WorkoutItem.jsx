@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import './WorkoutItem.css';
-// import NumericInput from 'react-numeric-input';
 import * as workoutsAPI from '../../utilities/workouts-api';
 
 export default function WorkoutItem({item, workoutLog, allWorkoutDetails, setAllWorkoutDetails, clearFormData, setClearFormData}){
@@ -10,7 +9,7 @@ export default function WorkoutItem({item, workoutLog, allWorkoutDetails, setAll
   useEffect(() => {
     function updateFormData() {
       let inputDataArray = formData.map(inputObj => ({...inputObj}));
-      while (inputDataArray.length < sets) inputDataArray.push({weight: 1, reps: 1})
+      while (inputDataArray.length < sets) inputDataArray.push({weight: 0, reps: 0})
       while (inputDataArray.length > sets) inputDataArray.pop();
       setFormData(inputDataArray);
     }
@@ -51,23 +50,26 @@ export default function WorkoutItem({item, workoutLog, allWorkoutDetails, setAll
 
   return (
     <>
-      <div>
+      <div className="workout-log">
         <h5>{item.name}</h5>
         <form id='add-workout'>
-          <label>Total sets</label>
-        <input value={sets} min={1} max={5} type="number" onChange={(evt) => setSets(Number(evt.target.value))}/>
-        {formData.map((inputObj, idx) => (
-          <div key={idx}>
-            <label>ID:{item._id} </label>
-            <label>Set {idx+1} lbs</label>
-            <input type="text" name="weight" min={1} value={`${formData[idx]["weight"]}`}  placeholder="Weight" onChange={(evt) => handleChange(evt, idx)}/>
-            <label>Set {idx+1} reps</label>
-            <input type="text" name="reps" min={1} value={`${formData[idx]["reps"]}`} placeholder="Reps" onChange={(evt) => handleChange(evt, idx)}/>
-          </div>
-        ))}
-        
-      </form>
-        
+            <label>Total sets</label>
+            <input value={sets} min={1} max={5} type="number" onChange={(evt) => setSets(Number(evt.target.value))}/>
+          {formData.map((inputObj, idx) => (
+            <div key={idx} className='workout-data'>
+              <div>
+                <label>Set {idx+1} Lbs: </label>
+                &nbsp;&nbsp;
+                <input type="text" name="weight" min={0} value={`${formData[idx]["weight"]}`}  placeholder="Weight" onChange={(evt) => handleChange(evt, idx)}/>
+              </div>
+              <div>
+                <label>Set {idx+1} Reps: </label>
+                &nbsp;
+                <input type="text" name="reps" min={0} value={`${formData[idx]["reps"]}`} placeholder="Reps" onChange={(evt) => handleChange(evt, idx)}/>
+              </div>
+            </div>
+          ))}
+        </form>
       </div>
     </>
   )

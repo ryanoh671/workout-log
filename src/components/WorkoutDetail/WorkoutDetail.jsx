@@ -13,7 +13,7 @@ export default function WorkoutDetail({workoutLog, setUserWorkouts}) {
     date: new Date(), 
     notes: ''
   });
-  const [workoutPageData, setWorkoutPageData] = useState([]);
+  // const [workoutPageData, setWorkoutPageData] = useState([]);
 
   const workoutDetail = allWorkoutDetails.map(w => w.exercise)
 
@@ -51,16 +51,24 @@ export default function WorkoutDetail({workoutLog, setUserWorkouts}) {
   }
 
   return (
-  <div className="workoutDetail">
-      <h1>Workout Items</h1>
-      <form>
-        <label>Date: </label>
-        <input value={formData.date.toISOString().split('T')[0]} name="date" type="date" onChange={handleChange}/>
-        <label>Notes: </label>
-        <input value={formData.notes} name="notes" type="text" onChange={handleChange}/>
-      </form>
+  <div>
+      { workoutLog.length ? 
+      <>
+        <form className="notes-date">
+          <label>Date: </label>
+          <input value={formData.date.toISOString().split('T')[0]} name="date" type="date" onChange={handleChange}/>
+          <label>Notes: </label>
+          <input value={formData.notes} name="notes" type="text" onChange={handleChange}/>
+        </form>
+        <button onClick={handleAddToWorkout}>Save Workout</button>
+        <Link to='/search'>
+          <button>Cancel Workout</button>
+        </Link>
+      </>
+      :
+      <h2>Search and Add Exericse!</h2>
+      }
         <ul>{workoutItem}</ul>
-        <button onClick={handleAddToWorkout}>Finish Workout</button>
   </div>
 
   )

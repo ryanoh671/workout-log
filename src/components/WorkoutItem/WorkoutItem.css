@@ -1,9 +1,26 @@
-/* .card > :not(h5) {
+/* .workout-log {
+  display: flex;
+  flex-direction: column;
+} */
+/* label {
+  width: 50vmin;
+}
+
+*/
+.workout-log {
+  margin: 10px;
+}
+
+#add-workout {
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-data {
   display: grid;
   grid-template-columns: 1fr 1fr;
-} */
-/* 
-h5 {
-  position: absolute;
-} */
+}
 
+/* input {
+  width: 15vmin;
+} */

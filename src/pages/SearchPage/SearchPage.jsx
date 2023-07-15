@@ -26,8 +26,8 @@ export default function SearchPage({setUserWorkouts}) {
     <main className="SearchPage">
       <WorkoutDetail workoutLog={workoutLog} setUserWorkouts={setUserWorkouts}/>
       <div>
-        <form onSubmit={handleSearch}>
-          <label>Search For Exercises Here</label>
+        <form className="search-form" onSubmit={handleSearch}>
+          <label>Search For Exercise</label>
           <input type="text" name='search' value={search} placeholder="Type in exercise" onChange={handleChange}/>
           <button type="submit">SEARCH</button>
         </form>

@@ -4,7 +4,7 @@ export default function WorkoutPage({userWorkouts}) {
     <>
     <h1>Workout Page</h1>
     {userWorkouts.map(w => (
-      <div key={w._id}>
+      <div key={w._id} className='card'>
         <h3>{new Date(w.date).toString()}</h3>
         <h3>{w.notes}</h3>
         {w.exercises.map(e => (
