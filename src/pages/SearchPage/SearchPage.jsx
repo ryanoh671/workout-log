@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import * as exercisesAPI from '../../utilities/exercises-api';
 // import BodyParts from '../../components/BodyParts/BodyParts';
 import ExerciseList from '../../components/ExerciseList/ExerciseList';
-import WorkoutDetail from '../../components/WorkoutDetail/WorkoutDetail';
+import WorkoutLog from '../../components/WorkoutLog/WorkoutLog';
 import './SearchPage.css';
 
 export default function SearchPage({setUserWorkouts}) {
@@ -24,7 +24,7 @@ export default function SearchPage({setUserWorkouts}) {
   
   return (
     <main className="SearchPage">
-      <WorkoutDetail workoutLog={workoutLog} setUserWorkouts={setUserWorkouts}/>
+      <WorkoutLog workoutLog={workoutLog} setUserWorkouts={setUserWorkouts}/>
       <div>
         <form className="search-form" onSubmit={handleSearch}>
           <label>Search For Exercise</label>

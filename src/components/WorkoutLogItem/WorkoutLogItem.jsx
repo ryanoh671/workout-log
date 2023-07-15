@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import './WorkoutItem.css';
+import './WorkoutLogItem.css';
 import * as workoutsAPI from '../../utilities/workouts-api';
 
-export default function WorkoutItem({item, workoutLog, allWorkoutDetails, setAllWorkoutDetails, clearFormData, setClearFormData}){
+export default function WorkoutLogItem({item, workoutLog, allWorkoutDetails, setAllWorkoutDetails, clearFormData, setClearFormData}){
   const [formData, setFormData] = useState([])
   const [sets, setSets] = useState(1);
 

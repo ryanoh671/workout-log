@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import './WorkoutDetail.css';
-import WorkoutItem from '../WorkoutItem/WorkoutItem';
+import './WorkoutLog.css';
+import WorkoutLogItem from '../WorkoutLogItem/WorkoutLogItem';
 import { Link, useNavigate } from 'react-router-dom';
 import * as workoutsAPI from '../../utilities/workouts-api';
 
 
-export default function WorkoutDetail({workoutLog, setUserWorkouts}) {
+export default function WorkoutLog({workoutLog, setUserWorkouts}) {
   const navigate = useNavigate();
   const [clearFormData, setClearFormData] = useState(false);
   const [allWorkoutDetails, setAllWorkoutDetails] = useState([]);
@@ -18,7 +18,7 @@ export default function WorkoutDetail({workoutLog, setUserWorkouts}) {
   const workoutDetail = allWorkoutDetails.map(w => w.exercise)
 
   const workoutItem = workoutLog.map(item => 
-    <WorkoutItem
+    <WorkoutLogItem
       key={item._id} 
       item={item} 
       workoutLog={workoutLog} 
