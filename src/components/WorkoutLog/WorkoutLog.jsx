@@ -13,7 +13,6 @@ export default function WorkoutLog({workoutLog, setUserWorkouts}) {
     date: new Date(), 
     notes: ''
   });
-  // const [workoutPageData, setWorkoutPageData] = useState([]);
 
   const workoutDetail = allWorkoutDetails.map(w => w.exercise)
 
