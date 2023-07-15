@@ -5,7 +5,7 @@ import ExerciseList from '../../components/ExerciseList/ExerciseList';
 import WorkoutDetail from '../../components/WorkoutDetail/WorkoutDetail';
 import './SearchPage.css';
 
-export default function SearchPage() {
+export default function SearchPage({setUserWorkouts}) {
   const [search, setSearch] = useState('');
   const [searchedExercises, setSearchedExercises] = useState([]);
   const [workoutLog, setWorkoutLog] = useState([]);
@@ -24,7 +24,7 @@ export default function SearchPage() {
   
   return (
     <main className="SearchPage">
-      <WorkoutDetail workoutLog={workoutLog}/>
+      <WorkoutDetail workoutLog={workoutLog} setUserWorkouts={setUserWorkouts}/>
       <aside>
         <h1>Search Page</h1>
         <form onSubmit={handleSearch}>

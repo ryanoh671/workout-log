@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import * as workoutsAPI from '../../utilities/workouts-api';
 
 
-export default function WorkoutDetail({workoutLog}) {
+export default function WorkoutDetail({workoutLog, setUserWorkouts}) {
   const navigate = useNavigate();
   const [clearFormData, setClearFormData] = useState(false);
   const [allWorkoutDetails, setAllWorkoutDetails] = useState([]);
@@ -41,6 +41,7 @@ export default function WorkoutDetail({workoutLog}) {
     });
     setAllWorkoutDetails([]);
     setClearFormData(true);
+    setUserWorkouts(allUserWorkouts);
     navigate("/workouts")
   }
 

@@ -34,8 +34,8 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
-              <Route path="/search" element={<SearchPage />} />
-              <Route path="/workouts" element={<WorkoutPage />} />
+              <Route path="/search" element={<SearchPage setUserWorkouts={setUserWorkouts}/>} />
+              <Route path="/workouts" element={<WorkoutPage userWorkouts={userWorkouts}/>} />
               {/* <Route path="/workout/:workoutId" element={<WorkoutDetailPage />} /> */}
             </Routes>
           </>

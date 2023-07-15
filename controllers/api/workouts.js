@@ -26,7 +26,7 @@ async function createWorkout(req, res) {
 
 async function getUserWorkouts(req, res) {
   try {
-    const userWorkouts = await Workout.find({user: req.user._id})
+    const userWorkouts = await Workout.find({user: req.user._id}).populate("exercises.exercise")
     res.status(200).json(userWorkouts);
   } catch (err) {
     console.log(err)
