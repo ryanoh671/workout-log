@@ -1,9 +1,11 @@
-/* .card {
+.card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 50vmin;
   width: 50vmin;
   float: left;
   margin: 100px;
 }
- */
+
+
+

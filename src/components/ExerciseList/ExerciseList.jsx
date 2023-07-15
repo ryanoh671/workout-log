@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import 'materialize-css/dist/css/materialize.min.css'
+import 'materialize-css/dist/css/materialize.min.css'
 import './ExerciseList.css';
 import * as exercisesAPI from '../../utilities/exercises-api';
 
@@ -13,7 +13,7 @@ export default function ExerciseList( {searchedExercises, setWorkoutLog, workout
   }
 
   return (
-    <div>
+    <div className='card'>
       {searchedExercises.map(e => (
         <div key={e.id}>
           <h3>{e.name}</h3>
