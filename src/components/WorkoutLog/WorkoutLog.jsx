@@ -54,7 +54,7 @@ export default function WorkoutLog({workoutLog, setUserWorkouts, setWorkoutLog})
       { workoutLog.length ? 
       <div className="workout-log">
         <button onClick={handleAddToWorkout}>Save Workout</button>
-        <button onClick={() => setWorkoutLog([])}>Cancel Workout</button>
+        <button className='cancel-btn' onClick={() => setWorkoutLog([])}>Cancel Workout</button>
         <form className="notes-date">
           <label>Date: </label>
           <input value={formData.date.toISOString().split('T')[0]} name="date" type="date" onChange={handleChange}/>
@@ -63,7 +63,9 @@ export default function WorkoutLog({workoutLog, setUserWorkouts, setWorkoutLog})
         </form>
       </div>
       :
-      <h6>Workout Log: none (add exercise)</h6>
+      <div className='log-title'>
+        <h6>Workout Log empty - add exercise</h6>
+      </div>
       }
       {workoutItem}
   </div>
