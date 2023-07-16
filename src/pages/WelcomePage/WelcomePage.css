@@ -1,0 +1,15 @@
+h2 {
+  color: white;
+  font-weight: bold;
+}
+
+p {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.welcome-img {
+  max-width: 50%;
+  border-radius: 50%;
+}

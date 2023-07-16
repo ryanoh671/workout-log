@@ -24,12 +24,12 @@ export default function SearchPage({setUserWorkouts}) {
   
   return (
     <main className="SearchPage">
-      <WorkoutLog workoutLog={workoutLog} setUserWorkouts={setUserWorkouts}/>
-      <div>
-        <form className="search-form" onSubmit={handleSearch}>
-          <label>Search For Exercise</label>
+      <WorkoutLog workoutLog={workoutLog} setWorkoutLog={setWorkoutLog} setUserWorkouts={setUserWorkouts}/>
+      <div className='white'>
+        <form className='search-form' onSubmit={handleSearch}>
+          <label>Search Exercise:</label>
           <input type="text" name='search' value={search} placeholder="Type in exercise" onChange={handleChange}/>
-          <button type="submit">SEARCH</button>
+          <button id="search-btn" type="submit">SEARCH</button>
         </form>
         <ExerciseList searchedExercises={searchedExercises} setWorkoutLog={setWorkoutLog} workoutLog={workoutLog}/>
       </div>

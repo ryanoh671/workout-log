@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import * as workoutsAPI from '../../utilities/workouts-api';
 
 
-export default function WorkoutLog({workoutLog, setUserWorkouts}) {
+export default function WorkoutLog({workoutLog, setUserWorkouts, setWorkoutLog}) {
   const navigate = useNavigate();
   const [clearFormData, setClearFormData] = useState(false);
   const [allWorkoutDetails, setAllWorkoutDetails] = useState([]);
@@ -50,26 +50,23 @@ export default function WorkoutLog({workoutLog, setUserWorkouts}) {
   }
 
   return (
-  <div>
+  <div className='white'>
       { workoutLog.length ? 
-      <>
+      <div className="workout-log">
+        <button onClick={handleAddToWorkout}>Save Workout</button>
+        <button onClick={() => setWorkoutLog([])}>Cancel Workout</button>
         <form className="notes-date">
           <label>Date: </label>
           <input value={formData.date.toISOString().split('T')[0]} name="date" type="date" onChange={handleChange}/>
           <label>Notes: </label>
           <input value={formData.notes} name="notes" type="text" onChange={handleChange}/>
         </form>
-        <button onClick={handleAddToWorkout}>Save Workout</button>
-        <Link to='/search'>
-          <button>Cancel Workout</button>
-        </Link>
-      </>
+      </div>
       :
-      <h2>Search and Add Exericse!</h2>
+      <h6>Workout Log: none (add exercise)</h6>
       }
-        <ul>{workoutItem}</ul>
+      {workoutItem}
   </div>
-
   )
 };
 

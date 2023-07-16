@@ -20,7 +20,7 @@ export default function ExerciseList( {searchedExercises, setWorkoutLog, workout
           <p>{e.target}</p>
           <p>{e.equipment}</p>
           <img src={e.gifUrl} />
-          <button id="add-exercise"onClick={() => {handleAddExercise(e)}}>ADD EXERCISE</button>
+          <button onClick={() => {handleAddExercise(e)}}>ADD EXERCISE</button>
         </div>
       ))}
     </div>

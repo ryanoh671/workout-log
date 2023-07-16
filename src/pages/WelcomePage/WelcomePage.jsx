@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
+import './WelcomePage.css';
 
 
 export default function WelcomePage() {
   return (
-    <main>
-      <h1>WelcomePage</h1>
-      <h3>Strive for Progress</h3>
-      <h2>Welcome to WORKOUT LOG!! Sign up for a great experiece...</h2>
-    <h3>Background Image HERE</h3>
-     
-    </main>
+    <>
+      <div className='welcome-page'> 
+        <p>Strive for Progress, Never give up</p>
+        <img className='welcome-img' src="https://i.imgur.com/2OX1v9N.png" alt="" />
+      </div> 
+    </>
   );
 }

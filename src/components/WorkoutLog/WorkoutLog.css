@@ -1,12 +1,17 @@
-/* .card {
-  border: 3px solid black;
-}
-
-input {
-  float: left;
-  width: 10%;
-} */
-
 .notes-date {
   margin: 10px;
 }
+
+.workout-log {
+  padding: 10px;
+  background-color: white;
+}
+
+h6 { 
+  margin: 20px;
+}
+
+.white {
+  background-color: rgb(255, 255, 255);
+}
+

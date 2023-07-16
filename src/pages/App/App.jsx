@@ -28,8 +28,6 @@ export default function App() {
 
   return (
     <main className="App">
-      <h1>APP JSX PAGE</h1>
-   
       <NavBar user={user} setUser={setUser} />
       <Routes>
         {/* Route components in here */}

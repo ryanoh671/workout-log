@@ -9,17 +9,26 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav className='navbar navbar-light justify-content-center bg-light'>
+    <nav className='navbar navbar-light bg-dark '>
       { user ?
        <>
+      <div className='links'>
+        <Link to="/">Home</Link>
+        &nbsp; | &nbsp;
+        <Link to="/search">Search for Exercises</Link>
+        &nbsp; | &nbsp;
+        <Link to="/workouts">My Workouts</Link>
+      </div>
+      <div>
       <span>Welcome, {user.name}!</span>
-      &nbsp; | &nbsp;
-      <Link to="/search">Search for Exercises</Link>
-      &nbsp; | &nbsp;
-      <Link to="" onClick={handleLogOut}>Log Out</Link>
+        &nbsp; | &nbsp;
+        <Link to="" onClick={handleLogOut}>Log Out</Link>
+      </div>
       </> 
       :
-      <Link to="/auth">Login or Sign Up</Link>
+      <span>
+        <Link to="/auth">Login or Sign Up</Link>
+      </span>
     }
     </nav>
   );
