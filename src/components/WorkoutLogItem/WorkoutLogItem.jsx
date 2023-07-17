@@ -74,3 +74,5 @@ export default function WorkoutLogItem({item, workoutLog, allWorkoutDetails, set
     </>
   )
 }; 
+
+

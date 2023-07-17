@@ -6,11 +6,6 @@ module.exports = {
   addExercise
 };
 
-// async function getAllForUser(req, res) {
-//   const exercises = await Order.find({user: req.user._id, isPaid: true}).sort('-updatedAt');
-//   res.json(orders);
-// }
-
 async function addExercise(req, res) {
   try {
     let exerciseInDb = await Exercise.findOne({apiId: req.body.id});

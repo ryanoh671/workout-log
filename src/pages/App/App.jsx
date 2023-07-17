@@ -30,7 +30,7 @@ export default function App() {
       <NavBar user={user} setUser={setUser} />
       <Routes>
         {/* Route components in here */}
-        <Route path="/" element={<WelcomePage />} />
+        <Route path="/" element={<WelcomePage user={user}/>} />
         <Route path="/auth" element={<AuthPage user={user} setUser={setUser}/>} />
         <Route path="/search" element={<SearchPage setUserWorkouts={setUserWorkouts}/>} />
         <Route path="/workouts" element={<WorkoutPage userWorkouts={userWorkouts} setUserWorkouts={setUserWorkouts}/>} />

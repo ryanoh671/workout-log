@@ -3,9 +3,11 @@ import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as workoutsAPI from '../../utilities/workouts-api';
 
-export default function WorkoutPageDetails({userWorkouts, w, key, setUserWorkouts}) {
+export default function WorkoutPageDetails({userWorkouts, w,setUserWorkouts, changeFormDataFormat, matchDateFormat }) {
   const [show, setShow] = useState(false);
+  
   const navigate = useNavigate();
+  
 
   async function handleDeleteWorkout(w) {
     const newWorkoutList = await workoutsAPI.deleteWorkout(w)
@@ -14,9 +16,11 @@ export default function WorkoutPageDetails({userWorkouts, w, key, setUserWorkout
     setUserWorkouts(newWorkoutList);
     navigate('/workouts');
   }
+  
 
   return (
-    <div>
+    // {matchDateFormat.includes(changeFormDataFormat)?
+    <div className='workout-page-details'>
       { show ?
       <div key={w._id}>
         <h4>Date Completed: {new Date(w.date).toLocaleString()}</h4>
@@ -34,6 +38,9 @@ export default function WorkoutPageDetails({userWorkouts, w, key, setUserWorkout
             ))}
         </div>
         <button className='button' onClick={() => setShow(false)}>Hide Details</button>
+        <div>
+        --------------------------------------
+        </div>
       </div>
       
     :
@@ -42,10 +49,24 @@ export default function WorkoutPageDetails({userWorkouts, w, key, setUserWorkout
         <h4>Date Completed: {new Date(w.date).toLocaleString()}</h4>
         <h4>Notes: {w.notes}</h4>
         <button className='button' onClick={() => setShow(true)}>show details</button>
-      <button className='cancel-btn' onClick={() => handleDeleteWorkout(w)}>Delete Workout</button>
+        <button className='cancel-btn' onClick={() => handleDeleteWorkout(w)}>Delete X</button>
+      </div>
+      <div>
+        &nbsp;
+        --------------------------------------
       </div>
     </>
     }
   </div>
+  // :
+  // <h1></h1>
+  //   }
   )
 }
+
+
+// {matchDateFormat.includes(changeFormDataFormat)?
+//   {workoutDetails}
+//   :
+//   <h1></h1>
+//   }
