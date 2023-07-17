@@ -5,6 +5,7 @@ h5 {
 h4 {
   font-style: italic;
   white-space:normal;
+  font-size: 15px !important;
 }
 
 button:hover {

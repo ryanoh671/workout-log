@@ -10,7 +10,7 @@ export default function WorkoutPage({userWorkouts, setUserWorkouts}) {
     w={w} setUserWorkouts={setUserWorkouts}/>)
 
   return (
-    <div>
+    <div className='card'>
       {/* <select>
         <option value="someOption">SomeOption</option>
         <option value="otherOption">OtherOption</option>

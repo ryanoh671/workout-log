@@ -16,10 +16,10 @@ export default function WorkoutPageDetails({userWorkouts, w, key, setUserWorkout
   }
 
   return (
-    <div className='card'>
+    <div>
       { show ?
       <div key={w._id}>
-        <h4>{new Date(w.date).toLocaleString()}</h4>
+        <h4>Date Completed: {new Date(w.date).toLocaleString()}</h4>
         <h4>Notes: {w.notes}</h4>
         <div>
           {w.exercises.map(e => (
@@ -39,8 +39,8 @@ export default function WorkoutPageDetails({userWorkouts, w, key, setUserWorkout
     :
     <>
       <div>
-        <h4>{new Date(w.date).toLocaleString()}</h4>
-        <h4>{w.notes}</h4>
+        <h4>Date Completed: {new Date(w.date).toLocaleString()}</h4>
+        <h4>Notes: {w.notes}</h4>
         <button className='button' onClick={() => setShow(true)}>show details</button>
       <button className='cancel-btn' onClick={() => handleDeleteWorkout(w)}>Delete Workout</button>
       </div>

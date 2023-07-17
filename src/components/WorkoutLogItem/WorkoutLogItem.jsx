@@ -42,10 +42,10 @@ export default function WorkoutLogItem({item, workoutLog, allWorkoutDetails, set
       setAllWorkoutDetails([...filteredAllWorkoutDetails, newWorkoutDetails])
     }
   
-  function resetFormData() {
-    setFormData([]);
-    setSets(1);
-  }
+  // function resetFormData() {
+  //   setFormData([]);
+  //   setSets(1);
+  // }
    
 
   return (
@@ -74,6 +74,3 @@ export default function WorkoutLogItem({item, workoutLog, allWorkoutDetails, set
     </>
   )
 }; 
-
-// update the use state in the above component that (overall form data) set form data fort that one will go down to each component and update everything .
-// put in exercise upfront. 
