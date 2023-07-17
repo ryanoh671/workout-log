@@ -18,3 +18,9 @@
 a:hover {
    color: rgb(72, 72, 236)
 }
+
+.nav-img {
+  height: 30px;
+  width: 30px;
+}
+

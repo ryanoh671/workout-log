@@ -17,8 +17,7 @@ export default function SearchPage({setUserWorkouts}) {
 
   async function handleSearch(evt) {
     evt.preventDefault();
-    const results = await exercisesAPI.search(search);
-    // console.log(results);
+    const results = await exercisesAPI.search(search.toLowerCase());
     setSearchedExercises(results);
   } 
   
@@ -31,7 +30,7 @@ export default function SearchPage({setUserWorkouts}) {
           <input type="text" name='search' value={search} placeholder="Type in exercise" onChange={handleChange}/>
           <button id="search-btn" type="submit">SEARCH</button>
         </form>
-        <ExerciseList searchedExercises={searchedExercises} setWorkoutLog={setWorkoutLog} workoutLog={workoutLog}/>
+        <ExerciseList searchedExercises={searchedExercises} setWorkoutLog={setWorkoutLog} workoutLog={workoutLog} search={search}/>
       </div>
       </main>
   )

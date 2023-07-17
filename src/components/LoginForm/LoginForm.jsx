@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import * as usersService from '../../utilities/users-service';
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm({ setUser, user }) {
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -22,10 +24,12 @@ export default function LoginForm({ setUser }) {
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
+      navigate("/")
     } catch {
       setError('Log In Failed - Try Again');
     }
   }
+  
 
   return (
     <div>
@@ -35,7 +39,7 @@ export default function LoginForm({ setUser }) {
           <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
           <label>Password</label>
           <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+          <button className='button' type="submit">LOG IN</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>

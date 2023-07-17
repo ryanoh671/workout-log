@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './ExerciseList.css';
 import * as exercisesAPI from '../../utilities/exercises-api';
 
-export default function ExerciseList( {searchedExercises, setWorkoutLog, workoutLog} ) {
+export default function ExerciseList( {searchedExercises, setWorkoutLog, workoutLog, search} ) {
 
   async function handleAddExercise(exercise) {
     const exerciseInLog = workoutLog.some(ex => ex.apiId === exercise.id)
@@ -11,6 +11,8 @@ export default function ExerciseList( {searchedExercises, setWorkoutLog, workout
     const newExercise = await exercisesAPI.addExercise(exercise);
     setWorkoutLog([...workoutLog, newExercise]);
   }
+
+ 
 
   return (
     <div>

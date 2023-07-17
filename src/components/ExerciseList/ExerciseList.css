@@ -15,6 +15,15 @@ img {
   height: 35vmin;
 }
 
+span {
+  justify-content: left;
+}
+/* 
+h6 {
+  display: flex;
+  justify-content: left;
+} */
+
 /* 
 
  #add-exercise {
