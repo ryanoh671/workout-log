@@ -17,6 +17,8 @@
 .cancel-btn {
   color: rgb(233, 91, 40);
   background-color: rgb(243, 168, 88);
+  border-radius: 16px;
+  /* width: 14vmin; */
 }
 .cancel-btn:hover {
   color: rgb(219, 11, 11);

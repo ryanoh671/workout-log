@@ -8,6 +8,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 // POST /api/workouts
 router.post('/', workoutsCtrl.createWorkout);
 router.get('/user', workoutsCtrl.getUserWorkouts);
+router.delete('/:id', workoutsCtrl.deleteWorkout);
 
 
 module.exports = router;

@@ -11,3 +11,6 @@ export async function getUserWorkouts() {
   return sendRequest(`${BASE_URL}/user`);
 }
 
+export async function deleteWorkout(workout) {
+  return sendRequest(`${BASE_URL}/${workout._id}`, 'DELETE', workout)
+}

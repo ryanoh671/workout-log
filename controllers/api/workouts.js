@@ -3,7 +3,8 @@ const Workout = require('../../models/workout');
 
 module.exports = {
   createWorkout,
-  getUserWorkouts
+  getUserWorkouts,
+  deleteWorkout
 };
 
 async function createWorkout(req, res) {
@@ -33,4 +34,9 @@ async function getUserWorkouts(req, res) {
     res.status(500).json(err);
   }
 }
-
+async function deleteWorkout(req, res) {
+  console.log(req.body, 'req.body')
+  await Workout.findOneAndDelete({ _id: req.body._id })
+  const workouts = await Workout.find({ user: req.user._id })
+  res.json(workouts)
+}

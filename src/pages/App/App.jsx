@@ -19,7 +19,6 @@ export default function App() {
     async function getUserWorkouts() {
       const data = await workoutsAPI.getUserWorkouts();
       setUserWorkouts(data);
-      console.log(data, 'data')
     }
     getUserWorkouts();
   }
@@ -34,7 +33,7 @@ export default function App() {
         <Route path="/" element={<WelcomePage />} />
         <Route path="/auth" element={<AuthPage user={user} setUser={setUser}/>} />
         <Route path="/search" element={<SearchPage setUserWorkouts={setUserWorkouts}/>} />
-        <Route path="/workouts" element={<WorkoutPage userWorkouts={userWorkouts}/>} />
+        <Route path="/workouts" element={<WorkoutPage userWorkouts={userWorkouts} setUserWorkouts={setUserWorkouts}/>} />
         {/* <Route path="/workout/:workoutId" element={<WorkoutDetailPage />} /> */}
       </Routes>
     </main>

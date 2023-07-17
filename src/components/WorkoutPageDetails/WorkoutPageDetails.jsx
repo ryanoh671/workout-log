@@ -1,8 +1,19 @@
 import './WorkoutPageDetails.css';
 import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
+import * as workoutsAPI from '../../utilities/workouts-api';
 
-export default function WorkoutPageDetails({userWorkouts, w, key}) {
+export default function WorkoutPageDetails({userWorkouts, w, key, setUserWorkouts}) {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+
+  async function handleDeleteWorkout(w) {
+    const newWorkoutList = await workoutsAPI.deleteWorkout(w)
+    console.log(w, 'workout')
+    console.log(newWorkoutList, 'newWorkoutList')
+    setUserWorkouts(newWorkoutList);
+    navigate('/workouts');
+  }
 
   return (
     <div className='card'>
@@ -26,11 +37,14 @@ export default function WorkoutPageDetails({userWorkouts, w, key}) {
       </div>
       
     :
-    <div>
-      <h4>{new Date(w.date).toLocaleString()}</h4>
-      <h4>{w.notes}</h4>
-      <button className='button' onClick={() => setShow(true)}>show details</button>
-    </div>
+    <>
+      <div>
+        <h4>{new Date(w.date).toLocaleString()}</h4>
+        <h4>{w.notes}</h4>
+        <button className='button' onClick={() => setShow(true)}>show details</button>
+      <button className='cancel-btn' onClick={() => handleDeleteWorkout(w)}>Delete Workout</button>
+      </div>
+    </>
     }
   </div>
   )

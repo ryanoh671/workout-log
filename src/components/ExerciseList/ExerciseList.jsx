@@ -6,6 +6,7 @@ import * as exercisesAPI from '../../utilities/exercises-api';
 export default function ExerciseList( {searchedExercises, setWorkoutLog, workoutLog, search} ) {
 
   async function handleAddExercise(exercise) {
+    console.log(exercise, 'exercise in handle Add Exercise')
     const exerciseInLog = workoutLog.some(ex => ex.apiId === exercise.id)
     if (exerciseInLog) return;
     const newExercise = await exercisesAPI.addExercise(exercise);

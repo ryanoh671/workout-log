@@ -53,7 +53,7 @@ export default function WorkoutLog({workoutLog, setUserWorkouts, setWorkoutLog})
   <div className='white'>
       { workoutLog.length ? 
       <div className="workout-log">
-        <button onClick={handleAddToWorkout}>Save Workout</button>
+        <button className='button' onClick={handleAddToWorkout}>Save Workout</button>
         <button className='cancel-btn' onClick={() => setWorkoutLog([])}>Cancel Workout</button>
         <form className="notes-date">
           <label>Date: </label>
