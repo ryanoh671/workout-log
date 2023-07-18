@@ -3,16 +3,16 @@ import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as workoutsAPI from '../../utilities/workouts-api';
 
-export default function WorkoutPageDetails({userWorkouts, w,setUserWorkouts, changeFormDataFormat, matchDateFormat }) {
+export default function WorkoutPageDetails({userWorkouts, w, setUserWorkouts, changeFormDataFormat, matchDateFormat }) {
   const [show, setShow] = useState(false);
   
   const navigate = useNavigate();
   
+  // console.log(w, 'workout')
+  // console.log(userWorkouts, 'user workouts')
 
   async function handleDeleteWorkout(w) {
     const newWorkoutList = await workoutsAPI.deleteWorkout(w)
-    console.log(w, 'workout')
-    console.log(newWorkoutList, 'newWorkoutList')
     setUserWorkouts(newWorkoutList);
     navigate('/workouts');
   }
@@ -63,6 +63,7 @@ export default function WorkoutPageDetails({userWorkouts, w,setUserWorkouts, cha
   //   }
   )
 }
+
 
 
 // {matchDateFormat.includes(changeFormDataFormat)?

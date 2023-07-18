@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import WorkoutPageDetails from '../../components/WorkoutPageDetails/WorkoutPageDetails';
+import ProgressPage from '../ProgressPage/ProgressPage';
 
 export default function WorkoutPage({userWorkouts, setUserWorkouts}) {
   const [dateFormData, setDateFormData] = useState({
@@ -35,11 +36,12 @@ export default function WorkoutPage({userWorkouts, setUserWorkouts}) {
 
   return (
     <> 
-      <form action="">
+      {/* <form action="">
         <label>Select Date:</label>
         <input type="date" value={dateFormData.date.toISOString().split('T')[0]} name="date" onChange={handleChange}/>
-      </form>  
+      </form>   */}
       <div>
+        <ProgressPage userWorkouts={userWorkouts}/>
         {workoutDetails}
       </div>
     </>
