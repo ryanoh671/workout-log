@@ -41,6 +41,7 @@ export default function WorkoutPage({userWorkouts, setUserWorkouts}) {
         <input type="date" value={dateFormData.date.toISOString().split('T')[0]} name="date" onChange={handleChange}/>
       </form>   */}
       <div>
+        <p>Workout History:</p>
         <ProgressPage userWorkouts={userWorkouts}/>
         {workoutDetails}
       </div>

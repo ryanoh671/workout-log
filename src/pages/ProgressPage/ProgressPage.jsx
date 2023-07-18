@@ -6,7 +6,7 @@ export default function ProgressPage({userWorkouts}) {
 
   return (
     <>
-      <p>Progress PAGE</p>
+      {/* <p>Progress PAGE</p> */}
     </>
   )
 }

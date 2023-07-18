@@ -9,57 +9,47 @@ Build empowers users to record and monitor their exercise routines by leveraging
 
 </div>
 
-# Screenshot
+# Screenshots
 
 
-<img src="https://i.imgur.com/oknCWGG.png">
-<img src="https://i.imgur.com/FM3mmn8.png">
+<img src="https://i.imgur.com/vqFcJ0N.png">
+<img src="https://i.imgur.com/GfwTZAM.png">
+<img src="https://i.imgur.com/jozRDMC.png">
 
 # Technologies Used
 
-![MongoDB](https://img.shields.io/badge/-MongoDB-333?style=flat&logo=mongodb)
-![Express](https://img.shields.io/badge/-Express-333?style=flat&logo=express)
-![Node](https://img.shields.io/badge/-Node.js-333?style=flat&logo=node.js)
-![JWT](https://img.shields.io/badge/-JSON_Web_Tokens-333?style=flat&logo=jsonwebtokens)
-![Mongoose ODM](https://img.shields.io/badge/-Mongoose_ODM-333?style=flat&logo=mongodb)
-![JavaScript](https://img.shields.io/badge/-JavaScript-333?style=flat&logo=javascript) 
-![HTML5](https://img.shields.io/badge/-HTML5-333?style=flat&logo=html5)
-![CSS3](https://img.shields.io/badge/-CSS-333?style=flat&logo=css3)
-![Trello](https://img.shields.io/badge/-Trello-333?style=flat&logo=trello) 
-![Heroku](https://img.shields.io/badge/-Heroku-333?style=flat&logo=heroku)
-![Github](https://img.shields.io/badge/-GitHub-333?style=flat&logo=github)
-![VSCode](https://img.shields.io/badge/-VS_Code-333?style=flat&logo=visualstudio)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) 
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white)
+![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+
 
 # ⚛️ Getting Started
 
-<h3>📲 Instructions </h3>
-
-<details open>
-<summary>How to</summary>
-<ol>
-<li>Login with your google Account using link on the home page</li>
-<li>Click "Add Brewery" link to add any brewery</li>
-<li>Add a review and rating for any brewery</li>
-<li>Click the "Check In" link to check-in to any brewery</li>
-<li>View Check-In history and images uploaded</li>
-</ol>
-</details>
-
-<details open>
 <h3>🔗 Links </h3>
+<details open>
 <summary>Trello Board</summary>   
-<a href="https://trello.com/b/3mxMmLXd/project-2">https://trello.com/b/3mxMmLXd/project-2</a>      
+<a href="https://trello.com/b/TTJQTKQl/project-4">https://trello.com/b/TTJQTKQl/project-4</a>      
 </details>
 
 <details open>   
 <summary>Deployed Link (Heroku)</summary>
-<a href="https://breweries-reviews-project.herokuapp.com/">https://breweries-reviews-project.herokuapp.com/</a>
+<a href="https://workout-log-app-172e14242751.herokuapp.com/">https://workout-log-app-172e14242751.herokuapp.com/</a>
 </details>
 
 
 # ⏩ Next Steps   
 
-- Add ability to like images/reviews
-- Add ability to add a verified full address and be able to map to the brewery
-- Add additional CSS 
-- Make it primarily for mobile users, due to the check in feature. 
+- Add ability to track progress for each exercise. 
+- Add ability to share workout history with other users. 
+- Add ability to add comments on others' shared workouts. 
+- Make it more mobile-friendly. 
