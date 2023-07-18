@@ -13,9 +13,7 @@ export default function WorkoutLog({workoutLog, setUserWorkouts, setWorkoutLog})
     date: new Date(), 
     notes: ''
   });
-
-  const workoutDetail = allWorkoutDetails.map(w => w.exercise)
-
+  // const workoutDetail = allWorkoutDetails.map(w => w.exercise)
   const workoutItem = workoutLog.map(item => 
     <WorkoutLogItem
       key={item._id} 

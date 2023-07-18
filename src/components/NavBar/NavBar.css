@@ -4,17 +4,11 @@
   border: 2px solid rgb(133, 122, 122);
   padding: 12px;
   margin: 5px;
-  /* width: 100%; */
 }
 
 .links > a {
-  /* color: #258ce6; */
   color: white;
 }
-/* 
-.auth-link > a {
-  float: right;
-} */
 
 a:hover {
    color: rgb(72, 72, 236);

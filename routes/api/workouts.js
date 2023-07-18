@@ -6,9 +6,9 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 // All paths start with '/api/workouts'
 
 // POST /api/workouts
-router.post('/', workoutsCtrl.createWorkout);
-router.get('/user', workoutsCtrl.getUserWorkouts);
-router.delete('/:id', workoutsCtrl.deleteWorkout);
+router.post('/', ensureLoggedIn, workoutsCtrl.createWorkout);
+router.get('/user', ensureLoggedIn, workoutsCtrl.getUserWorkouts);
+router.delete('/:id', ensureLoggedIn, workoutsCtrl.deleteWorkout);
 
 
 module.exports = router;

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import * as exercisesAPI from '../../utilities/exercises-api';
-// import BodyParts from '../../components/BodyParts/BodyParts';
 import ExerciseList from '../../components/ExerciseList/ExerciseList';
 import WorkoutLog from '../../components/WorkoutLog/WorkoutLog';
 import './SearchPage.css';

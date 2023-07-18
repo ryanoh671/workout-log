@@ -5,21 +5,15 @@ import * as workoutsAPI from '../../utilities/workouts-api';
 
 export default function WorkoutPageDetails({userWorkouts, w, setUserWorkouts, changeFormDataFormat, matchDateFormat }) {
   const [show, setShow] = useState(false);
-  
   const navigate = useNavigate();
   
-  // console.log(w, 'workout')
-  // console.log(userWorkouts, 'user workouts')
-
   async function handleDeleteWorkout(w) {
     const newWorkoutList = await workoutsAPI.deleteWorkout(w)
     setUserWorkouts(newWorkoutList);
     navigate('/workouts');
   }
-  
 
   return (
-    // {matchDateFormat.includes(changeFormDataFormat)?
     <div className='workout-page-details'>
       { show ?
       <div key={w._id}>
@@ -42,7 +36,6 @@ export default function WorkoutPageDetails({userWorkouts, w, setUserWorkouts, ch
         --------------------------------------
         </div>
       </div>
-      
     :
     <>
       <div>
@@ -58,16 +51,5 @@ export default function WorkoutPageDetails({userWorkouts, w, setUserWorkouts, ch
     </>
     }
   </div>
-  // :
-  // <h1></h1>
-  //   }
   )
 }
-
-
-
-// {matchDateFormat.includes(changeFormDataFormat)?
-//   {workoutDetails}
-//   :
-//   <h1></h1>
-//   }

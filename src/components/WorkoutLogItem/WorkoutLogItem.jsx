@@ -41,12 +41,6 @@ export default function WorkoutLogItem({item, workoutLog, allWorkoutDetails, set
       const filteredAllWorkoutDetails = allWorkoutDetails.filter(w => w.exercise !== item._id)
       setAllWorkoutDetails([...filteredAllWorkoutDetails, newWorkoutDetails])
     }
-  
-  // function resetFormData() {
-  //   setFormData([]);
-  //   setSets(1);
-  // }
-   
 
   return (
     <>

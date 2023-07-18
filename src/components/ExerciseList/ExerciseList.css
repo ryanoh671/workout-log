@@ -4,7 +4,6 @@
   white-space: nowrap;
   display: flex;
   flex-direction: column;
-  /* height: 20vmin; */
   width: 42vmin;
   float: left;
   padding: 10px;
@@ -18,15 +17,3 @@ img {
 span {
   justify-content: left;
 }
-/* 
-h6 {
-  display: flex;
-  justify-content: left;
-} */
-
-/* 
-
- #add-exercise {
-  width: 200px;
-
- } */

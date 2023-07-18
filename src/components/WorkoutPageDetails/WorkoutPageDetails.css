@@ -15,6 +15,5 @@ button:hover {
 .workout-page-details {
   background-color: rgba(174, 179, 212, 0.5);
   width: 300px;
-  /* align-items: center; */
   margin: auto;
 }

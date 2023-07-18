@@ -30,7 +30,6 @@ export default function LoginForm({ setUser, user }) {
     }
   }
   
-
   return (
     <div>
       <div className="form-container">

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-// import 'materialize-css/dist/css/materialize.min.css'
 import './ExerciseList.css';
 import * as exercisesAPI from '../../utilities/exercises-api';
 
@@ -12,8 +10,6 @@ export default function ExerciseList( {searchedExercises, setWorkoutLog, workout
     const newExercise = await exercisesAPI.addExercise(exercise);
     setWorkoutLog([...workoutLog, newExercise]);
   }
-
- 
 
   return (
     <div>
